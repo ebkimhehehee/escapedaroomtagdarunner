@@ -55,6 +55,7 @@ def main():
         p_one.display()
         p_two.update()
         p_two.display()
+        ...
 
         for w in walls:
             w.display()
