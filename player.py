@@ -1,7 +1,7 @@
 import pygame
 
 
-
+from walls import Wall
 
 class Player:
 
@@ -27,6 +27,14 @@ class Player:
        self.left = key_left
        self.right = key_right
        self.color = color
+
+   def runinto(self, wall: Wall) -> None:
+        left_edge = wall.x - wall.width / 2 - self.width*(1/2)
+        right_edge = wall.x + wall.width / 2 + self.width*(1/2)
+        top_edge = wall.y - wall.height / 2 - self.width*(1/2)
+        bottom_edge = wall.y + wall.height / 2 + self.width*(1/2)
+        if left_edge < self.x < right_edge and top_edge < self.y < bottom_edge:
+            self.x == wall.x and self.y == wall.y
 
 
    def update(self) -> None:
