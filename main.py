@@ -15,6 +15,8 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((1400, 800))
 
+    state = "start"
+
     font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
 
     p_one = Player(
@@ -50,7 +52,22 @@ def main():
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
                 sys.exit()
-
+            if event.type == pygame.locals.K_v:
+                if event.key == pygame.K_SPACE:
+                    if state == "start":
+                        state = "game"
+                    elif state == "gane":
+                        state = "dead"
+                if event.key == pygame.K_r:
+                    if state == "dead":
+                        state = "start"
+        if state == "start":
+            screen.fill("#87fdff")
+        elif state == "game":
+            screen.fill("#ffffff")
+        elif state == "dead":
+            screen.fill("#911B1B")
+        
         p_one.update()
         p_one.display()
         p_two.update()
