@@ -7,12 +7,12 @@ from random import randrange
 class Wall:
 
 
-   def __init__(self, screen: pygame.Surface) -> None:
+   def __init__(self, screen: pygame.Surface, x: int, y: int, width: int, height: int) -> None:
        self.screen = screen
-       self.x = randrange(0, screen.get_width())
-       self.y = randrange(0, screen.get_height())
-       self.width = 50
-       self.height = 50
+       self.x = x
+       self.y = y
+       self.width = width
+       self.height = height
 
 
    def display(self):

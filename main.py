@@ -43,7 +43,15 @@ def main():
     )
     right_score = 0
 
-    walls = [Wall(screen) for i in range(100)]
+    walls = [
+        Wall(screen, 100, 30, 300, 100),
+        Wall(screen, 600, 200, 50, 300),
+        Wall(screen, 100, 800, 50, 500),
+        Wall(screen, 1000, 50, 300, 800),
+        Wall(screen, 1200, 700, 400, 200),
+        Wall(screen, 600, 600, 400, 200),
+        Wall(screen, 300, 300, 200, 300)
+    ]
 
     while True:
         screen.fill("#000000")
@@ -67,7 +75,7 @@ def main():
             screen.fill("#ffffff")
         elif state == "dead":
             screen.fill("#911B1B")
-        
+
         p_one.update()
         p_one.display()
         p_two.update()
