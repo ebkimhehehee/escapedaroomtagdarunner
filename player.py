@@ -30,7 +30,7 @@ class Player:
        self.init_x = x
        self.init_y = y
 
-   def runinto(self, wall: Wall) -> None:
+   def touchwall(self, wall: Wall) -> None:
         left_edge = wall.x - wall.width / 2 - self.width*(1/2)
         right_edge = wall.x + wall.width / 2 + self.width*(1/2)
         top_edge = wall.y - wall.height / 2 - self.width*(1/2)
@@ -41,27 +41,42 @@ class Player:
 
 
    def update(self) -> None:
-       pushed = pygame.key.get_pressed()
+    pushed = pygame.key.get_pressed()
 
 
-       self.vx = pushed[self.left] * -5 + pushed[self.right] * 5
-       self.vy = pushed[self.up] * -5 + pushed[self.down] * 5
+    self.vx = pushed[self.left] * -5 + pushed[self.right] * 5
+    self.vy = pushed[self.up] * -5 + pushed[self.down] * 5
 
 
-       self.x += self.vx
-       self.y += self.vy
+    self.x += self.vx
+    self.y += self.vy
 
 
-       if self.x < 0.5 * self.width:
-           self.x = 0.5 * self.width
-       if self.x > self.screen.get_width() - 0.5 * self.width:
-           self.x = self.screen.get_width() - 0.5 * self.width
+    if self.x < 0.5 * self.width:
+        self.x = 0.5 * self.width
+    if self.x > self.screen.get_width() - 0.5 * self.width:
+        self.x = self.screen.get_width() - 0.5 * self.width
 
 
-       if self.y < 0.5 * self.height:
-           self.y = 0.5 * self.height
-       if self.y > self.screen.get_height() - 0.5 * self.height:
-           self.y = self.screen.get_height() - 0.5 * self.height
+    if self.y < 0.5 * self.height:
+        self.y = 0.5 * self.height
+    if self.y > self.screen.get_height() - 0.5 * self.height:
+        self.y = self.screen.get_height() - 0.5 * self.height
+    
+    walls = [
+        Wall(self.screen, 100, 30, 300, 100),
+        Wall(self.screen, 600, 200, 50, 300),
+        Wall(screen, 100, 800, 50, 500),
+        Wall(screen, 1000, 50, 300, 800),
+        Wall(screen, 1200, 700, 400, 200),
+        Wall(screen, 600, 600, 400, 200),
+        Wall(screen, 300, 300, 200, 300)
+    ]
+
+    for w in walls:
+        self.touchwall()
+
+        
 
 
    def display(self) -> None:
