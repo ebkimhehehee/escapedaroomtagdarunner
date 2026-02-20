@@ -9,75 +9,73 @@ from player import Player
 from walls import Wall
 
 
-
-
 def main():
-   fps = 60
-   fps_clock = pygame.time.Clock()
-   pygame.init()
-   screen = pygame.display.set_mode((1400, 800))
+    fps = 60
+    fps_clock = pygame.time.Clock()
+    pygame.init()
+    screen = pygame.display.set_mode((1400, 800))
 
+    font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
 
-   # font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
+    p_one = Player(
+        screen,
+        screen.get_width() / 2,
+        screen.get_height() / 2,
+        pygame.K_w,
+        pygame.K_s,
+        pygame.K_a,
+        pygame.K_d,
+        "#FF0000",
+    )
+    left_score = 0
 
+    p_two = Player(
+        screen,
+        screen.get_width() / 2,
+        screen.get_height() / 2,
+        pygame.K_UP,
+        pygame.K_DOWN,
+        pygame.K_LEFT,
+        pygame.K_RIGHT,
+        "#0026FF",
+    )
+    right_score = 0
 
-   p_one = Player(
-       screen,
-       screen.get_width() / 2,
-       screen.get_height() / 2,
-       pygame.K_w,
-       pygame.K_s,
-       pygame.K_a,
-       pygame.K_d,
-       "#FF0000",
-   )
-   # left_score = 0
+    walls = [Wall(screen) for i in range(100)]
 
+    while True:
+        screen.fill("#000000")
 
-   p_two = Player(
-       screen,
-       screen.get_width() / 2,
-       screen.get_height() / 2,
-       pygame.K_UP,
-       pygame.K_DOWN,
-       pygame.K_LEFT,
-       pygame.K_RIGHT,
-       "#0026FF",
-   )
-   # right_score = 0
+        for event in pygame.event.get():
+            if event.type == pygame.locals.QUIT:
+                pygame.quit()
+                sys.exit()
 
+        p_one.update()
+        p_one.display()
+        p_two.update()
+        p_two.display()
 
-   walls = [Wall(screen) for i in range(100)]
+        for w in walls:
+            w.display()
 
+        scorer = ...
+        if scorer == 1:
+            right_score += 1
+        elif scorer == 2:
+            left_score += 1
+        right_score_image = font.render(f"{right_score}", True, "#ffffff")
+        left_score_image = font.render(f"{left_score}", True, "#ffffff")
+        screen.blit(
+            left_score_image, (0.2 * screen.get_width(), 0.1 * screen.get_height())
+        )
+        screen.blit(
+            right_score_image, (0.8 * screen.get_width(), 0.1 * screen.get_height())
+        )
 
-   while True:
-       screen.fill("#000000")
-
-
-       for event in pygame.event.get():
-           if event.type == pygame.locals.QUIT:
-               pygame.quit()
-               sys.exit()
-
-
-           p_one.update()
-           p_one.display()
-           p_two.update()
-           p_two.display()
-
-
-           for w in walls:
-               w.display()
-
-
-       pygame.display.flip()
-       fps_clock.tick(fps)
-
-
+        pygame.display.flip()
+        fps_clock.tick(fps)
 
 
 if __name__ == "__main__":
-   main()
-
-
-
+    main()
