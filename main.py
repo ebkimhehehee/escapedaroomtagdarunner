@@ -70,7 +70,7 @@ def main():
                     if state == "dead":
                         state = "start"
         if state == "start":
-            screen.fill("#87fdff")
+            screen.fill("#000000")
         elif state == "game":
             screen.fill("#ffffff")
         elif state == "dead":
