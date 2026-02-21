@@ -8,6 +8,7 @@ import pygame.locals
 from player import Player
 from walls import Wall
 from startpoint import Start
+from orbs import Orb
 
 def main():
     fps = 60
@@ -17,6 +18,7 @@ def main():
 
     state = "start"
 
+    orbeez = [Orb(screen) for i in range(10)]
 
     start = [Start(screen, 25, 100, 50, 50)]
     font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
@@ -84,6 +86,9 @@ def main():
         for s in start:
             s.display()
 
+        for orb in orbeez:
+            orb.display()
+
         p_one.update()
         p_one.display()
         p_two.update()
@@ -96,6 +101,7 @@ def main():
             p_two.runinto(wall)
         for w in walls:
             w.display()
+
 
 
         scorer = ...
