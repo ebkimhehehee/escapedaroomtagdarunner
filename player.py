@@ -44,8 +44,8 @@ class Player:
        pushed = pygame.key.get_pressed()
 
 
-       self.vx = pushed[self.left] * -5 + pushed[self.right] * 5
-       self.vy = pushed[self.up] * -5 + pushed[self.down] * 5
+       self.vx = pushed[self.left] * -7.5 + pushed[self.right] * 7.5
+       self.vy = pushed[self.up] * -7.5 + pushed[self.down] * 7.5
 
 
        self.x += self.vx
