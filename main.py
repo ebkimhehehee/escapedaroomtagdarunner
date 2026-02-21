@@ -7,7 +7,7 @@ import pygame.locals
 
 from player import Player
 from walls import Wall
-
+from startpoint import Start
 
 def main():
     fps = 60
@@ -17,12 +17,16 @@ def main():
 
     state = "start"
 
+
+    start = [Start(screen, 25, 100, 50, 50)]
     font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
+    
+    spawn = start[0]
 
     p_one = Player(
         screen,
-        screen.get_width() / 2,
-        screen.get_height() / 2,
+        spawn.x,
+        spawn.y,
         pygame.K_w,
         pygame.K_s,
         pygame.K_a,
@@ -33,8 +37,8 @@ def main():
 
     p_two = Player(
         screen,
-        screen.get_width() / 2,
-        screen.get_height() / 2,
+        spawn.x,
+        spawn.y,
         pygame.K_UP,
         pygame.K_DOWN,
         pygame.K_LEFT,
@@ -52,6 +56,7 @@ def main():
         Wall(screen, 600, 600, 400, 200),
         Wall(screen, 300, 300, 200, 300)
     ]
+
 
     while True:
         screen.fill("#000000")
@@ -76,10 +81,14 @@ def main():
         elif state == "dead":
             screen.fill("#911B1B")
 
+        for s in start:
+            s.display()
+
         p_one.update()
         p_one.display()
         p_two.update()
         p_two.display()
+
 
         for wall in walls:
             p_one.runinto(wall)
@@ -87,6 +96,7 @@ def main():
             p_two.runinto(wall)
         for w in walls:
             w.display()
+
 
         scorer = ...
         if scorer == 1:
