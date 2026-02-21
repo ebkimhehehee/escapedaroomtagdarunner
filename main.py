@@ -80,8 +80,12 @@ def main():
         p_one.display()
         p_two.update()
         p_two.display()
-        
+        p_one.update()
 
+        for wall in walls:
+            p_one.runinto(wall)
+        for wall in walls:
+            p_two.runinto(wall)
         for w in walls:
             w.display()
 
