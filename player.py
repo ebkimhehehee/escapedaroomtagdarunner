@@ -52,16 +52,16 @@ class Player:
        self.y += self.vy
 
 
-       if self.x < 0.5 * self.width:
-           self.x = 0.5 * self.width
-       if self.x > self.screen.get_width() - 0.5 * self.width:
-           self.x = self.screen.get_width() - 0.5 * self.width
+       if self.x < 0.7 * self.width:
+           self.x = 0.7 * self.width
+       if self.x > self.screen.get_width() - 0.7 * self.width:
+           self.x = self.screen.get_width() - 0.7 * self.width
 
 
-       if self.y < 0.5 * self.height:
-           self.y = 0.5 * self.height
-       if self.y > self.screen.get_height() - 0.5 * self.height:
-           self.y = self.screen.get_height() - 0.5 * self.height
+       if self.y < 0.7 * self.height:
+           self.y = 0.7 * self.height
+       if self.y > self.screen.get_height() - 0.7 * self.height:
+           self.y = self.screen.get_height() - 0.7* self.height
 
 
    def display(self) -> None:
