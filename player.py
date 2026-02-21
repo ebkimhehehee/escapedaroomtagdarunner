@@ -36,8 +36,8 @@ class Player:
         top_edge = wall.y - wall.height / 2 - self.width*(1/2)
         bottom_edge = wall.y + wall.height / 2 + self.width*(1/2)
         if left_edge < self.x < right_edge and top_edge < self.y < bottom_edge:
-            self.x == self.init_x 
-            self.y == self.init_y
+            self.x = self.init_x 
+            self.y = self.init_y
 
 
    def update(self) -> None:
