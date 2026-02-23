@@ -115,6 +115,8 @@ def main():
         for w in walls:
             w.display()
 
+        p_one.reachend(endpt)
+
         scorer = ...
         if scorer == 1:
             right_score += 1

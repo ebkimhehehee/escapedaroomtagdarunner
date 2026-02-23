@@ -2,6 +2,7 @@ import pygame
 
 
 from walls import Wall
+from endpoint import End
 
 
 class Player:
@@ -39,6 +40,15 @@ class Player:
             self.x = self.init_x
             self.y = self.init_y
 
+    def reachend(self, endpt: End) -> None:
+        left_edge = endpt.x - endpt.width / 2 - self.width * (1 / 2)
+        right_edge = endpt.x + endpt.width / 2 + self.width * (1 / 2)
+        top_edge = endpt.y - endpt.height / 2 - self.width * (1 / 2)
+        bottom_edge = endpt.y + endpt.height / 2 + self.width * (1 / 2)
+        if left_edge < self.x < right_edge and top_edge < self.y < bottom_edge:
+            self.x = self.init_x
+            self.y = self.init_y
+
     def update(self) -> None:
         pushed = pygame.key.get_pressed()
 
@@ -64,3 +74,4 @@ class Player:
         pygame.draw.rect(
             self.screen, self.color, (rect_x, rect_y, self.width, self.height)
         )
+
