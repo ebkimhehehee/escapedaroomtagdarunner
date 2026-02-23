@@ -58,6 +58,15 @@ def main():
         Wall(screen, 1200, 700, 400, 200),
         Wall(screen, 600, 600, 400, 200),
         Wall(screen, 300, 300, 200, 300),
+        Wall(screen, 1200, 400, 200, 30),
+        Wall(screen, 1350, 200, 150, 30),
+        Wall(screen, 700, 450, 20, 100),
+        Wall(screen, 225, 650, 30, 150),
+        Wall(screen, 260, 630, 100, 20),
+        Wall(screen, 600, 700, 20, 100),
+        Wall(screen, 800, 800, 20, 100),
+        Wall(screen, 1190, 40, 80, 80),
+        Wall(screen, 800, 200, 100, 100)
     ]
 
     while True:
