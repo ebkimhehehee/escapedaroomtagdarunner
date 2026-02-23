@@ -21,15 +21,17 @@ def main():
 
     orbeez = [Orb(screen) for i in range(10)]
 
-    start = Start(screen, 25, 100, 50, 50)
+    start1 = Start(screen, 25, 100, 50, 50)
+    start2 = Start(screen, 25, 775, 50, 50)
     font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
 
-    spawn = start
+    spawn1 = start1
+    spawn2 = start2
 
     p_one = Player(
         screen,
-        spawn.x,
-        spawn.y,
+        spawn1.x,
+        spawn1.y,
         pygame.K_w,
         pygame.K_s,
         pygame.K_a,
@@ -40,8 +42,8 @@ def main():
 
     p_two = Player(
         screen,
-        spawn.x,
-        spawn.y,
+        spawn2.x,
+        spawn2.y,
         pygame.K_UP,
         pygame.K_DOWN,
         pygame.K_LEFT,
@@ -92,7 +94,8 @@ def main():
         elif state == "dead":
             screen.fill("#911B1B")
 
-        start.display()
+        start1.display()
+        start2.display()
 
         for orb in orbeez:
             orb.display()
