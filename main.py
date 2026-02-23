@@ -9,6 +9,7 @@ from player import Player
 from walls import Wall
 from startpoint import Start
 from orbs import Orb
+from endpoint import End
 
 
 def main():
@@ -23,6 +24,7 @@ def main():
 
     start1 = Start(screen, 25, 100, 50, 50)
     start2 = Start(screen, 25, 775, 50, 50)
+    endpt = End(screen, 1350, 100, 50, 50)
     font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
 
     spawn1 = start1
@@ -96,6 +98,7 @@ def main():
 
         start1.display()
         start2.display()
+        endpt.display()
 
         for orb in orbeez:
             orb.display()
