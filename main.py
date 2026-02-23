@@ -117,13 +117,13 @@ def main():
 
         p_one.reachend(endpt)
 
-        scorer = ...
-        if scorer == 1:
+        score_runner = p_one.reachend(endpt)
+        score_tagger = ...
+        if score_runner == 1:
             right_score += 1
-        elif scorer == 2:
-            left_score += 1
-        right_score_image = font.render(f"{right_score}", True, "#ffffff")
-        left_score_image = font.render(f"{left_score}", True, "#ffffff")
+    
+        right_score_image = font.render(f"{right_score}", True, "#ff0000")
+        left_score_image = font.render(f"{left_score}", True, "#0026ff")
         screen.blit(
             left_score_image, (0.2 * screen.get_width(), 0.1 * screen.get_height())
         )
