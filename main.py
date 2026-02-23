@@ -18,7 +18,7 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((1400, 800))
 
-    state = "start"
+    # state = "start"
 
     orbeez = [Orb(screen) for i in range(10)]
 
@@ -80,21 +80,21 @@ def main():
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.locals.K_v:
-                if event.key == pygame.K_SPACE:
-                    if state == "start":
-                        state = "game"
-                    elif state == "gane":
-                        state = "dead"
-                if event.key == pygame.K_r:
-                    if state == "dead":
-                        state = "start"
-        if state == "start":
-            screen.fill("#000000")
-        elif state == "game":
-            screen.fill("#ffffff")
-        elif state == "dead":
-            screen.fill("#911B1B")
+            # if event.type == pygame.locals.K_v:
+            #     if event.key == pygame.K_SPACE:
+            #         if state == "start":
+            #             state = "game"
+            #         elif state == "gane":
+            #             state = "dead"
+            #     if event.key == pygame.K_r:
+            #         if state == "dead":
+            #             state = "start"
+        # if state == "start":
+        #     screen.fill("#000000")
+        # elif state == "game":
+        #     screen.fill("#ffffff")
+        # elif state == "dead":
+        #     screen.fill("#911B1B")
 
         start1.display()
         start2.display()
