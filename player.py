@@ -40,7 +40,7 @@ class Player:
             self.x = self.init_x
             self.y = self.init_y
 
-    def reachend(self, endpt: End) -> int:
+    def reachend(self, endpt: End) -> bool:
         left_edge = endpt.x - endpt.width / 2 - self.width * (1 / 2)
         right_edge = endpt.x + endpt.width / 2 + self.width * (1 / 2)
         top_edge = endpt.y - endpt.height / 2 - self.width * (1 / 2)
@@ -48,8 +48,8 @@ class Player:
         if left_edge < self.x < right_edge and top_edge < self.y < bottom_edge:
             self.x = self.init_x
             self.y = self.init_y
-            return 1
-        return 0
+            return True
+        return False
     
 
     def update(self) -> None:

@@ -115,11 +115,9 @@ def main():
         for w in walls:
             w.display()
 
-        p_one.reachend(endpt)
-
         score_runner = p_one.reachend(endpt)
         score_tagger = ...
-        if score_runner == 1:
+        if score_runner:
             right_score += 1
     
         right_score_image = font.render(f"{right_score}", True, "#ff0000")
