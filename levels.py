@@ -38,6 +38,7 @@ class Level:
             pygame.K_a,
             pygame.K_d,
             "#FF0000",
+            self
         )
         p_two = Player(
             self.screen,
@@ -48,6 +49,7 @@ class Level:
             pygame.K_LEFT,
             pygame.K_RIGHT,
             "#0026FF",
+            self
         )
         return p_one, p_two
 
