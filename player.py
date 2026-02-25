@@ -58,20 +58,17 @@ class Player:
     
 
     def touch_orb(self, orb: Orb) -> bool:
-        left_edge = self.x - self.width / 2 - orb.radi * (1 / 2)
-        right_edge = self.x + self.width / 2 + orb.radi * (1 / 2)
-        top_edge = self.y - self.height / 2 - orb.radi * (1 / 2)
-        bottom_edge = self.y + self.height / 2 + orb.radi * (1 / 2)
+        x_diff = abs(self.x - orb.x)
+        y_diff = abs(self.y - orb.y)
 
-        if left_edge < self.x < right_edge and top_edge < orb.y < bottom_edge:
+        if x_diff < self.width / 2 + orb.radi and y_diff <self.height / 2 +orb.radi:
             if self.color == orb.color:
-                self.vx *= 1.1
-                self.vy *= 1.1
-                return True
+                self.vx *= 1.3
+                self.vy *= 1.3
             else:
-                self.vx *= 0.9
-                self.vy *= 0.9
-                return True
+                self.vx *= 0.7
+                self.vy *= 0.7
+            return True
         return False
 
 
@@ -94,7 +91,10 @@ class Player:
         if self.y > self.screen.get_height() - 0.7 * self.height:
             self.y = self.screen.get_height() - 0.7 * self.height
 
-        self.level.orbs
+        for orb in self.level.orbs:
+            if self.touch_orb(orb):
+                self.touch_orb
+                self.level.orbs.remove(orb)
 
     def display(self) -> None:
         rect_x = self.x - self.width / 2
