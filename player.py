@@ -103,7 +103,6 @@ class Player:
 
         for orb in self.level.orbs:
             if self.touch_orb(orb):
-                self.touch_orb
                 self.level.orbs.remove(orb)
 
     def display(self) -> None:
