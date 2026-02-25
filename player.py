@@ -3,7 +3,10 @@ import pygame
 
 from walls import Wall
 from endpoint import End
+from orbs import Orb
 
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
 
 class Player:
 
@@ -51,6 +54,43 @@ class Player:
             return True
         return False
     
+
+    def speedup(self, orb: Orb) -> bool:
+        left_edge = self.x - self.width / 2 - orb.radi * (1 / 2)
+        right_edge = self.x + self.width / 2 + orb.radi * (1 / 2)
+        top_edge = self.y - self.height / 2 - orb.radi * (1 / 2)
+        bottom_edge = self.y + self.height / 2 + orb.radi * (1 / 2)
+        if self.color == RED and orb.color == RED:
+            if left_edge < self.x < right_edge and top_edge < orb.y < bottom_edge:
+                self.vx += 0.2
+                self.vy += 0.2
+                return True
+        if self.color == BLUE and orb.color == BLUE:
+            if left_edge < self.x < right_edge and top_edge < orb.y < bottom_edge:
+                self.vx += 0.2
+                self.vy += 0.2
+                return True
+        return False
+    
+
+
+
+    def slowdown(self, orb: Orb) -> bool:
+        left_edge = self.x - self.width / 2 - orb.radi * (1 / 2)
+        right_edge = self.x + self.width / 2 + orb.radi * (1 / 2)
+        top_edge = self.y - self.height / 2 - orb.radi * (1 / 2)
+        bottom_edge = self.y + self.height / 2 + orb.radi * (1 / 2)
+        if self.color == RED and orb.color == RED:
+            if left_edge < self.x < right_edge and top_edge < orb.y < bottom_edge:
+                self.vx += 0.2
+                self.vy += 0.2
+                return True
+        if self.color == BLUE and orb.color == BLUE:
+            if left_edge < self.x < right_edge and top_edge < orb.y < bottom_edge:
+                self.vx += 0.2
+                self.vy += 0.2
+                return True
+        return False
 
     def update(self) -> None:
         pushed = pygame.key.get_pressed()

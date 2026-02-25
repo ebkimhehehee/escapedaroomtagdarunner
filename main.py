@@ -1,6 +1,5 @@
 import sys
 
-
 import pygame
 import pygame.locals
 
@@ -10,6 +9,7 @@ from walls import Wall
 from startpoint import Start
 from orbs import Orb
 from endpoint import End
+from tagging import tagged
 
 
 def main():
@@ -103,10 +103,12 @@ def main():
         for orb in orbeez:
             orb.display()
 
+
         p_one.update()
         p_one.display()
         p_two.update()
         p_two.display()
+
 
         for wall in walls:
             p_one.runinto(wall)
@@ -114,11 +116,15 @@ def main():
             p_two.runinto(wall)
         for w in walls:
             w.display()
+        
 
         score_runner = p_one.reachend(endpt)
-        score_tagger = ...
+        score_tagger = tagged(p_two, p_one)
         if score_runner:
             right_score += 1
+        if score_tagger:
+            left_score += 1
+        
     
         right_score_image = font.render(f"{right_score}", True, "#ff0000")
         left_score_image = font.render(f"{left_score}", True, "#0026ff")
