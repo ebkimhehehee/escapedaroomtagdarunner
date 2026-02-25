@@ -5,6 +5,7 @@ import pygame.locals
 
 from levels import init_l1
 
+
 def main():
     fps = 60
     fps_clock = pygame.time.Clock()

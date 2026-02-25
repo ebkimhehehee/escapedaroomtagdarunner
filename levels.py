@@ -8,7 +8,8 @@ from orbs import Orb
 from tagging import tagged
 
 class Level:
-
+    RED = (255, 0, 0)
+    BLUE = (0, 0, 255)
     def __init__(
         self,
         screen: pygame.Surface,
@@ -37,8 +38,8 @@ class Level:
             pygame.K_s,
             pygame.K_a,
             pygame.K_d,
-            "#FF0000",
-            self
+            (255,0,0),
+            self, 7.5
         )
         p_two = Player(
             self.screen,
@@ -48,8 +49,8 @@ class Level:
             pygame.K_DOWN,
             pygame.K_LEFT,
             pygame.K_RIGHT,
-            "#0026FF",
-            self
+            (0,0,255),
+            self, 7.5
         )
         return p_one, p_two
 

@@ -19,8 +19,9 @@ class Player:
         key_down: int,
         key_left: int,
         key_right: int,
-        color: str,
-        level: "Level" # type: ignore
+        color: tuple[int, int, int],
+        level: "Level", # type: ignore
+        speed: float
     ) -> None:
         self.screen = screen
         self.x, self.y = x, y
@@ -35,6 +36,7 @@ class Player:
         self.init_x = x
         self.init_y = y
         self.level = level
+        self.speed = 7.5
 
     def runinto(self, wall: Wall) -> None:
         left_edge = wall.x - wall.width / 2 - self.width * (1 / 2)
@@ -63,11 +65,11 @@ class Player:
 
         if x_diff < self.width / 2 + orb.radi and y_diff <self.height / 2 +orb.radi:
             if self.color == orb.color:
-                self.vx *= 1.3
-                self.vy *= 1.3
+                self.speed *= 1.3
+                self.speed *= 1.3
             else:
-                self.vx *= 0.7
-                self.vy *= 0.7
+                self.speed *= 0.7
+                self.speed *= 0.7
             return True
         return False
 
@@ -75,8 +77,8 @@ class Player:
     def update(self) -> None:
         pushed = pygame.key.get_pressed()
 
-        self.vx = pushed[self.left] * -7.5 + pushed[self.right] * 7.5
-        self.vy = pushed[self.up] * -7.5 + pushed[self.down] * 7.5
+        self.vx = pushed[self.left] * -self.speed + pushed[self.right] * self.speed
+        self.vy = pushed[self.up] * -self.speed + pushed[self.down] * self.speed
 
         self.x += self.vx
         self.y += self.vy
