@@ -38,6 +38,14 @@ class Player:
         self.level = level
         self.speed = 7.5
 
+
+        if self.color == (255, 0, 0):
+            self.face = pygame.image.load("assets/red.png").convert_alpha()
+        else:
+            self.face = pygame.image.load("assets/blue.png").convert_alpha()
+        
+        self.face = pygame.transform.scale(self.face, (self.width, self.height))
+
     def runinto(self, wall: Wall) -> None:
         left_edge = wall.x - wall.width / 2 - self.width * (1 / 2)
         right_edge = wall.x + wall.width / 2 + self.width * (1 / 2)
@@ -101,7 +109,4 @@ class Player:
     def display(self) -> None:
         rect_x = self.x - self.width / 2
         rect_y = self.y - self.height / 2
-        pygame.draw.rect(
-            self.screen, self.color, (rect_x, rect_y, self.width, self.height)
-        )
-
+        self.screen.blit(self.face, (rect_x, rect_y))
