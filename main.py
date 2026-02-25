@@ -3,13 +3,7 @@ import sys
 import pygame
 import pygame.locals
 
-from orbs import Orb
-from levels import Level, init_l1
-from startpoint import Start
-from endpoint import End
-from player import Player
-from walls import Wall
-
+from levels import init_l1
 
 def main():
     fps = 60

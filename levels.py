@@ -5,6 +5,7 @@ from walls import Wall
 from startpoint import Start
 from endpoint import End
 from orbs import Orb
+from tagging import tagged
 
 class Level:
 
@@ -74,10 +75,10 @@ class Level:
         tagger_score = 0
         runner_score = 0
         score_runner = runner.reachend(self.end)
-        score_tagger = False  # HAVE TO MERGE OR SOMETHING WITH ESTHER
+        score_tagger = tagged(runner, tagger) 
         if score_runner:
             runner_score += 1
-            level = ...  # IDK YET FIX
+            level = ...
         if score_tagger:
             tagger_score += 1
 
@@ -113,3 +114,4 @@ def init_l1(screen: pygame.Surface):
     orbs = [Orb(screen) for i in range(10)]
 
     return Level(screen, "#000000", (25, 100), (25, 775), (1350, 100), walls, orbs)
+
