@@ -28,6 +28,8 @@ class Level:
         self.orbs = orbs
         self.font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
         self.p1, self.p2 = self.init_players()
+        self.tagger_score = 0
+        self.runner_score = 0
 
     def init_players(self) -> tuple[Player, Player]:
         p_one = Player(
@@ -75,22 +77,21 @@ class Level:
         self.p2.update()
         self.p2.display()
 
-        tagger_score = 0
-        runner_score = 0
+
         score_runner = runner.reachend(self.end)
         score_tagger = tagged(runner, tagger) 
         if score_runner:
-            runner_score += 1
+            self.runner_score += 1
             runner.speed = 7.5
             tagger.speed = 7.5
             level = ...
         if score_tagger:
-            tagger_score += 1
+            self.tagger_score += 1
             tagger.speed = 7.5
             runner.speed = 7.5
 
-        right_score_image = self.font.render(f"{runner_score}", True, "#ff0000")
-        left_score_image = self.font.render(f"{tagger_score}", True, "#0026ff")
+        right_score_image = self.font.render(f"{self.runner_score}", True, "#ff0000")
+        left_score_image = self.font.render(f"{self.tagger_score}", True, "#0026ff")
         screen.blit(
             left_score_image, (0.2 * screen.get_width(), 0.1 * screen.get_height())
         )
