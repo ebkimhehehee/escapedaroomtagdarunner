@@ -81,9 +81,13 @@ class Level:
         score_tagger = tagged(runner, tagger) 
         if score_runner:
             runner_score += 1
+            runner.speed = 7.5
+            tagger.speed = 7.5
             level = ...
         if score_tagger:
             tagger_score += 1
+            tagger.speed = 7.5
+            runner.speed = 7.5
 
         right_score_image = self.font.render(f"{runner_score}", True, "#ff0000")
         left_score_image = self.font.render(f"{tagger_score}", True, "#0026ff")
