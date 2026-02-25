@@ -37,7 +37,7 @@ class Player:
         self.init_y = y
         self.level = level
         self.speed = 7.5
-
+        self.trail = []
 
         if self.color == (255, 0, 0):
             self.face = pygame.image.load("assets/red.png").convert_alpha()
@@ -105,7 +105,22 @@ class Player:
             if self.touch_orb(orb):
                 self.level.orbs.remove(orb)
 
+        self.trail.append((self.x, self.y))
+
+        if len(self.trail) > 4:
+            self.trail.pop(0)
     def display(self) -> None:
         rect_x = self.x - self.width / 2
         rect_y = self.y - self.height / 2
+
+        for pos in self.trail:
+            pygame.draw.circle(
+            self.screen,
+            self.color,
+            (int(pos[0]), int(pos[1])),
+            4
+        )
+
         self.screen.blit(self.face, (rect_x, rect_y))
+
+        
