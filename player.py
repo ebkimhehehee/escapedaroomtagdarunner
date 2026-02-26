@@ -19,8 +19,9 @@ class Player:
         key_down: int,
         key_left: int,
         key_right: int,
-        color: str,
-        level: "Level" # type: ignore
+        color: tuple[int, int, int],
+        level: "Level", # type: ignore
+        speed: float
     ) -> None:
         self.screen = screen
         self.x, self.y = x, y
@@ -35,6 +36,15 @@ class Player:
         self.init_x = x
         self.init_y = y
         self.level = level
+        self.speed = 7.5
+        self.trail = []
+
+        if self.color == (255, 0, 0):
+            self.face = pygame.image.load("assets/red.png").convert_alpha()
+        else:
+            self.face = pygame.image.load("assets/blue.png").convert_alpha()
+        
+        self.face = pygame.transform.scale(self.face, (self.width, self.height))
 
     def runinto(self, wall: Wall) -> None:
         left_edge = wall.x - wall.width / 2 - self.width * (1 / 2)
@@ -58,28 +68,25 @@ class Player:
     
 
     def touch_orb(self, orb: Orb) -> bool:
-        left_edge = self.x - self.width / 2 - orb.radi * (1 / 2)
-        right_edge = self.x + self.width / 2 + orb.radi * (1 / 2)
-        top_edge = self.y - self.height / 2 - orb.radi * (1 / 2)
-        bottom_edge = self.y + self.height / 2 + orb.radi * (1 / 2)
+        x_diff = abs(self.x - orb.x)
+        y_diff = abs(self.y - orb.y)
 
-        if left_edge < self.x < right_edge and top_edge < orb.y < bottom_edge:
+        if x_diff < self.width / 2 + orb.radi and y_diff <self.height / 2 +orb.radi:
             if self.color == orb.color:
-                self.vx *= 1.1
-                self.vy *= 1.1
-                return True
+                self.speed *= 1.3
+                self.speed *= 1.3
             else:
-                self.vx *= 0.9
-                self.vy *= 0.9
-                return True
+                self.speed *= 0.7
+                self.speed *= 0.7
+            return True
         return False
 
 
     def update(self) -> None:
         pushed = pygame.key.get_pressed()
 
-        self.vx = pushed[self.left] * -7.5 + pushed[self.right] * 7.5
-        self.vy = pushed[self.up] * -7.5 + pushed[self.down] * 7.5
+        self.vx = pushed[self.left] * -self.speed + pushed[self.right] * self.speed
+        self.vy = pushed[self.up] * -self.speed + pushed[self.down] * self.speed
 
         self.x += self.vx
         self.y += self.vy
@@ -94,12 +101,26 @@ class Player:
         if self.y > self.screen.get_height() - 0.7 * self.height:
             self.y = self.screen.get_height() - 0.7 * self.height
 
-        self.level.orbs
+        for orb in self.level.orbs:
+            if self.touch_orb(orb):
+                self.level.orbs.remove(orb)
 
+        self.trail.append((self.x, self.y))
+
+        if len(self.trail) > 4:
+            self.trail.pop(0)
     def display(self) -> None:
         rect_x = self.x - self.width / 2
         rect_y = self.y - self.height / 2
-        pygame.draw.rect(
-            self.screen, self.color, (rect_x, rect_y, self.width, self.height)
+
+        for pos in self.trail:
+            pygame.draw.circle(
+            self.screen,
+            self.color,
+            (int(pos[0]), int(pos[1])),
+            4
         )
 
+        self.screen.blit(self.face, (rect_x, rect_y))
+
+        

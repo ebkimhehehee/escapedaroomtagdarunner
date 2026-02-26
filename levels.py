@@ -8,7 +8,8 @@ from orbs import Orb
 from tagging import tagged
 
 class Level:
-
+    RED = (255, 0, 0)
+    BLUE = (0, 0, 255)
     def __init__(
         self,
         screen: pygame.Surface,
@@ -27,8 +28,8 @@ class Level:
         self.orbs = orbs
         self.font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
         self.p1, self.p2 = self.init_players()
-        self.p1_score = 0
-        self.p2_score = 0
+        self.tagger_score = 0
+        self.runner_score = 0
 
     def init_players(self) -> tuple[Player, Player]:
         p_one = Player(
@@ -39,8 +40,8 @@ class Level:
             pygame.K_s,
             pygame.K_a,
             pygame.K_d,
-            "#FF0000",
-            self
+            (255,0,0),
+            self, 7.5
         )
         p_two = Player(
             self.screen,
@@ -50,8 +51,8 @@ class Level:
             pygame.K_DOWN,
             pygame.K_LEFT,
             pygame.K_RIGHT,
-            "#0026FF",
-            self
+            (0,0,255),
+            self, 7.5
         )
         return p_one, p_two
 
@@ -78,20 +79,19 @@ class Level:
 
 
         score_runner = runner.reachend(self.end)
-        score_tagger = tagged(runner, tagger)
-        if runner.color == "#ff0000":
-            if score_runner:
-                self.p1_score += 1
-            if score_tagger:
-                self.p2_score += 1
-        if runner.color == "#0026ff":
-            if score_runner:
-                self.p2_score += 1
-            if score_tagger:
-                self.p1_score += 1
-        
-        right_score_image = self.font.render(f"{self.p1_score}", True, "#ff0000")
-        left_score_image = self.font.render(f"{self.p2_score}", True, "#0026ff")
+        score_tagger = tagged(runner, tagger) 
+        if score_runner:
+            self.runner_score += 1
+            runner.speed = 7.5
+            tagger.speed = 7.5
+            level = ...
+        if score_tagger:
+            self.tagger_score += 1
+            tagger.speed = 7.5
+            runner.speed = 7.5
+
+        right_score_image = self.font.render(f"{self.runner_score}", True, "#ff0000")
+        left_score_image = self.font.render(f"{self.tagger_score}", True, "#0026ff")
         screen.blit(
             left_score_image, (0.2 * screen.get_width(), 0.1 * screen.get_height())
         )
