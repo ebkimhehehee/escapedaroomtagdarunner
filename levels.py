@@ -27,6 +27,8 @@ class Level:
         self.orbs = orbs
         self.font = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
         self.p1, self.p2 = self.init_players()
+        self.p1_score = 0
+        self.p2_score = 0
 
     def init_players(self) -> tuple[Player, Player]:
         p_one = Player(
@@ -58,6 +60,10 @@ class Level:
         for orb in self.orbs:
             orb.display()
 
+        self.start1.display()
+        self.start2.display()
+        self.end.display()
+
         for w in self.walls:
             w.display()
         for wall in self.walls:
@@ -65,27 +71,27 @@ class Level:
         for wall in self.walls:
             self.p2.runinto(wall)
 
-        self.start1.display()
-        self.start2.display()
-        self.end.display()
-
         self.p1.update()
         self.p1.display()
         self.p2.update()
         self.p2.display()
 
-        tagger_score = 0
-        runner_score = 0
-        score_runner = runner.reachend(self.end)
-        score_tagger = tagged(runner, tagger) 
-        if score_runner:
-            runner_score += 1
-            level = ...
-        if score_tagger:
-            tagger_score += 1
 
-        right_score_image = self.font.render(f"{runner_score}", True, "#ff0000")
-        left_score_image = self.font.render(f"{tagger_score}", True, "#0026ff")
+        score_runner = runner.reachend(self.end)
+        score_tagger = tagged(runner, tagger)
+        if runner.color == "#ff0000":
+            if score_runner:
+                self.p1_score += 1
+            if score_tagger:
+                self.p2_score += 1
+        if runner.color == "#0026ff":
+            if score_runner:
+                self.p2_score += 1
+            if score_tagger:
+                self.p1_score += 1
+        
+        right_score_image = self.font.render(f"{self.p1_score}", True, "#ff0000")
+        left_score_image = self.font.render(f"{self.p2_score}", True, "#0026ff")
         screen.blit(
             left_score_image, (0.2 * screen.get_width(), 0.1 * screen.get_height())
         )

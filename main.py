@@ -23,8 +23,6 @@ def main():
 
         if state == "l1":
             level1.update(screen, level1.p1, level1.p2)
-        if state == "l2":
-            ... #FIGURE THIS OUT
 
         pygame.display.flip()
         fps_clock.tick(fps)
