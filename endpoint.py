@@ -15,7 +15,7 @@ class End:
     def display(self):
         pygame.draw.rect(
             self.screen,
-            "#FFF15A",
+            "#FFC6E4",
             (
                 self.x - 0.5 * self.width,
                 self.y - 0.5 * self.height,
