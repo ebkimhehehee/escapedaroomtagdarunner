@@ -64,7 +64,7 @@ class Level:
         self.start1.display()
         self.start2.display()
         self.end.display()
-
+        
         for w in self.walls:
             w.display()
         for wall in self.walls:
@@ -77,9 +77,8 @@ class Level:
         self.p2.update()
         self.p2.display()
 
-
         score_runner = runner.reachend(self.end)
-        score_tagger = tagged(runner, tagger) 
+        score_tagger = tagged(runner, tagger) and tagger.tag_cooldown == 0
         if score_runner:
             self.runner_score += 1
             runner.speed = 7.5
@@ -90,6 +89,9 @@ class Level:
             tagger.speed = 7.5
             runner.speed = 7.5
 
+        if score_tagger:
+            self.tagger_score += 1
+            tagger.tag_cooldown = 120 
         right_score_image = self.font.render(f"{self.runner_score}", True, "#ff0000")
         left_score_image = self.font.render(f"{self.tagger_score}", True, "#0026ff")
         screen.blit(

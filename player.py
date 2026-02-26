@@ -37,6 +37,7 @@ class Player:
         self.init_y = y
         self.level = level
         self.speed = 7.5
+        self.tag_cooldown = 0 
         self.trail = []
 
         if self.color == (255, 0, 0):
@@ -83,6 +84,9 @@ class Player:
 
 
     def update(self) -> None:
+        if self.tag_cooldown > 0:
+            self.tag_cooldown -= 1
+
         pushed = pygame.key.get_pressed()
 
         self.vx = pushed[self.left] * -self.speed + pushed[self.right] * self.speed
