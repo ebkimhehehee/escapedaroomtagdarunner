@@ -7,7 +7,6 @@ from startpoint import Start
 from endpoint import End
 from orbs import Orb
 from tagging import tagged
-from juices import YAY
 
 
 
@@ -113,13 +112,6 @@ class Level:
 
         score_tagger = tagged(runner, tagger)
 
-        if score_tagger and not self.was_tagged:
-            self.effects.append(YAY(screen, runner.x, runner.y))
-            self.was_tagged = True
-
-        if not score_tagger:
-            self.was_tagged = False
-
         right_score_image = self.font.render(f"{self.p1_score}", True, self.p1.color)
         left_score_image = self.font.render(f"{self.p2_score}", True, self.p2.color)
         screen.blit(
@@ -128,12 +120,6 @@ class Level:
         screen.blit(
             right_score_image, (0.8 * screen.get_width(), 0.1 * screen.get_height())
         )
-        for effect in self.effects:
-            effect.update()
-            effect.draw()
-
-        self.effects = [e for e in self.effects if e.alive()]
-
 
 
 
