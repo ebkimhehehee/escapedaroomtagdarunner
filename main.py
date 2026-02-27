@@ -12,13 +12,14 @@ def main():
     fps = 60
     fps_clock = pygame.time.Clock()
     pygame.init()
+    pygame.mixer.init()
     screen = pygame.display.set_mode((1400, 800))
 
 
     level1 = init_l1(screen)
     level2 = init_l2(screen)
     state = "l2"
-
+    
     while True:
 
 

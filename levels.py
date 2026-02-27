@@ -10,7 +10,6 @@ from tagging import tagged
 
 
 
-
 class Level:
    RED = (255, 0, 0)
    BLUE = (0, 0, 255)
@@ -38,6 +37,7 @@ class Level:
        self.p1, self.p2 = self.init_players()
        self.p1_score = 0
        self.p2_score = 0
+       self.effects = []
 
 
    def init_players(self) -> tuple[Player, Player]:
@@ -110,6 +110,8 @@ class Level:
             runner.speed = 7.5
             tagger.speed = 7.5
 
+        score_tagger = tagged(runner, tagger)
+
         right_score_image = self.font.render(f"{self.p1_score}", True, self.p1.color)
         left_score_image = self.font.render(f"{self.p2_score}", True, self.p2.color)
         screen.blit(
@@ -118,7 +120,6 @@ class Level:
         screen.blit(
             right_score_image, (0.8 * screen.get_width(), 0.1 * screen.get_height())
         )
-
 
 
 
