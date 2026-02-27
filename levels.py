@@ -69,28 +69,28 @@ class Level:
 
 
    def update(self, screen: pygame.Surface, runner: Player, tagger: Player) -> None:
-       screen.fill(self.screen_color)
-       for orb in self.orbs:
-           orb.display()
+        screen.fill(self.screen_color)
+        for orb in self.orbs:
+            orb.display()
 
 
-       self.start1.display()
-       self.start2.display()
-       self.end.display()
+        self.start1.display()
+        self.start2.display()
+        self.end.display()
 
 
-       for w in self.walls:
-           w.display()
-       for wall in self.walls:
-           self.p1.runinto(wall)
-       for wall in self.walls:
-           self.p2.runinto(wall)
+        for w in self.walls:
+            w.display()
+        for wall in self.walls:
+            self.p1.runinto(wall)
+        for wall in self.walls:
+            self.p2.runinto(wall)
 
 
-       self.p1.update()
-       self.p1.display()
-       self.p2.update()
-       self.p2.display()
+        self.p1.update()
+        self.p1.display()
+        self.p2.update()
+        self.p2.display()
 
 
         score_runner = runner.reachend(self.end)
@@ -123,43 +123,47 @@ class Level:
 
 
 def init_l1(screen: pygame.Surface):
-   walls = [
-       Wall(screen, 100, 30, 300, 100),
-       Wall(screen, 600, 200, 50, 300),
-       Wall(screen, 100, 800, 50, 500),
-       Wall(screen, 1000, 50, 300, 800),
-       Wall(screen, 1200, 700, 400, 200),
-       Wall(screen, 600, 600, 400, 200),
-       Wall(screen, 300, 300, 200, 300),
-       Wall(screen, 1200, 400, 200, 30),
-       Wall(screen, 1350, 200, 150, 30),
-       Wall(screen, 700, 450, 20, 100),
-       Wall(screen, 225, 650, 30, 150),
-       Wall(screen, 260, 630, 100, 20),
-       Wall(screen, 600, 700, 20, 100),
-       Wall(screen, 800, 800, 20, 100),
-       Wall(screen, 1190, 40, 80, 80),
-       Wall(screen, 800, 200, 100, 100),
-   ]
-   orbs = [Orb(screen) for i in range(10)]
-
-
+    walls = [
+        Wall(screen, 100, 30, 300, 100),
+        Wall(screen, 600, 200, 50, 300),
+        Wall(screen, 100, 800, 50, 500),
+        Wall(screen, 1000, 50, 300, 800),
+        Wall(screen, 1200, 700, 400, 200),
+        Wall(screen, 600, 600, 400, 200),
+        Wall(screen, 300, 300, 200, 300),
+        Wall(screen, 1200, 400, 200, 30),
+        Wall(screen, 1350, 200, 150, 30),
+        Wall(screen, 700, 450, 20, 100),
+        Wall(screen, 225, 650, 30, 150),
+        Wall(screen, 260, 630, 100, 20),
+        Wall(screen, 600, 700, 20, 100),
+        Wall(screen, 800, 800, 20, 100),
+        Wall(screen, 1190, 40, 80, 80),
+        Wall(screen, 800, 200, 100, 100),
+    ]
+    orbs = [Orb(screen) for i in range(10)]
     return Level(screen, "#000000", (25, 100), (25, 775), (1350, 100), walls, orbs)
 
 
 def init_l2(screen: pygame.Surface):
     walls = [
         Wall(screen, 1000, 600, 200, 200),
-        Wall(screen, 250, 400, 80, 500),
+        Wall(screen, 250, 350, 80, 500),
         Wall(screen, 700, 250, 50, 250),
         Wall(screen, 575, 350, 250, 50),
         Wall(screen, 1150, 100, 400, 100),
         Wall(screen, 1275, 200, 150, 100),
         Wall(screen, 1325, 300, 50, 200),
         Wall(screen, 1035, 310, 170, 170),
-        Wall(screen, 1160, 350, 150, 90)
+        Wall(screen, 1160, 350, 150, 90),
+        Wall(screen, 700, 600, 50, 250),
+        Wall(screen, 200, 760, 500, 80),
+        Wall(screen, 50, 100, 100, 20),
+        Wall(screen, 170, 300, 100, 20),
+        Wall(screen, 50, 500, 120, 20),
     ]
 
     orbs = [Orb(screen) for i in range(10)]
 
-    return Level(screen, "#000000", (25, 100), (25, 775), (500, 300), walls, orbs)
+    return Level(screen, "#000000", (400, 100), (25, 600), (1180, 170), walls, orbs)
+
