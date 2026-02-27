@@ -3,7 +3,7 @@ import sys
 import pygame
 import pygame.locals
 
-from levels import init_l1
+from levels import init_l1, init_l2
 
 
 def main():
@@ -13,7 +13,8 @@ def main():
     screen = pygame.display.set_mode((1400, 800))
 
     level1 = init_l1(screen)
-    state = "l1"
+    level2 = init_l2(screen)
+    state = "l2"
 
     while True:
 
@@ -24,6 +25,8 @@ def main():
 
         if state == "l1":
             level1.update(screen, level1.p1, level1.p2)
+        if state == "l2":
+            level2.update(screen, level2.p2, level2.p1)
 
         pygame.display.flip()
         fps_clock.tick(fps)

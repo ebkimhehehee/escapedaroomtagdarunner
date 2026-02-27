@@ -93,7 +93,6 @@ class Level:
             runner.speed = 7.5
             tagger.speed = 7.5
         if score_tagger:
-            print("im working")
             if tagger.color == self.p1.color:
                 self.p1_score += 1
             if tagger.color == self.p2.color:
@@ -101,8 +100,8 @@ class Level:
             runner.speed = 7.5
             tagger.speed = 7.5
 
-        right_score_image = self.font.render(f"{self.p1_score}", True, "#ff0000")
-        left_score_image = self.font.render(f"{self.p2_score}", True, "#0026ff")
+        right_score_image = self.font.render(f"{self.p1_score}", True, self.p1.color)
+        left_score_image = self.font.render(f"{self.p2_score}", True, self.p2.color)
         screen.blit(
             left_score_image, (0.2 * screen.get_width(), 0.1 * screen.get_height())
         )
@@ -133,3 +132,21 @@ def init_l1(screen: pygame.Surface):
     orbs = [Orb(screen) for i in range(10)]
 
     return Level(screen, "#000000", (25, 100), (25, 775), (1350, 100), walls, orbs)
+
+
+def init_l2(screen: pygame.Surface):
+    walls = [
+        Wall(screen, 1000, 600, 200, 200),
+        Wall(screen, 250, 400, 80, 500),
+        Wall(screen, 700, 250, 50, 250),
+        Wall(screen, 575, 350, 250, 50),
+        Wall(screen, 1150, 100, 400, 100),
+        Wall(screen, 1275, 200, 150, 100),
+        Wall(screen, 1325, 300, 50, 200),
+        Wall(screen, 1035, 310, 170, 170),
+        Wall(screen, 1160, 350, 150, 90)
+    ]
+
+    orbs = [Orb(screen) for i in range(10)]
+
+    return Level(screen, "#000000", (25, 100), (25, 775), (500, 300), walls, orbs)
