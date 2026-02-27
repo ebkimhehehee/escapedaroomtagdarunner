@@ -148,16 +148,22 @@ def init_l1(screen: pygame.Surface):
 def init_l2(screen: pygame.Surface):
     walls = [
         Wall(screen, 1000, 600, 200, 200),
-        Wall(screen, 250, 400, 80, 500),
+        Wall(screen, 250, 350, 80, 500),
         Wall(screen, 700, 250, 50, 250),
         Wall(screen, 575, 350, 250, 50),
         Wall(screen, 1150, 100, 400, 100),
         Wall(screen, 1275, 200, 150, 100),
         Wall(screen, 1325, 300, 50, 200),
         Wall(screen, 1035, 310, 170, 170),
-        Wall(screen, 1160, 350, 150, 90)
+        Wall(screen, 1160, 350, 150, 90),
+        Wall(screen, 700, 600, 50, 250),
+        Wall(screen, 200, 760, 500, 80),
+        Wall(screen, 50, 100, 100, 20),
+        Wall(screen, 170, 300, 100, 20),
+        Wall(screen, 50, 500, 120, 20),
     ]
 
     orbs = [Orb(screen) for i in range(10)]
 
-    return Level(screen, "#000000", (25, 100), (25, 775), (500, 300), walls, orbs)
+    return Level(screen, "#000000", (400, 100), (25, 600), (1180, 170), walls, orbs)
+
