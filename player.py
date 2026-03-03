@@ -1,8 +1,8 @@
 import pygame
 
 
-
-
+import pygame
+yaysound = None
 from walls import Wall
 from endpoint import End
 from orbs import Orb
@@ -64,16 +64,27 @@ class Player:
 
 
    def reachend(self, endpt: End) -> bool:
-       left_edge = endpt.x - endpt.width / 2 - self.width * (1 / 2)
-       right_edge = endpt.x + endpt.width / 2 + self.width * (1 / 2)
-       top_edge = endpt.y - endpt.height / 2 - self.width * (1 / 2)
-       bottom_edge = endpt.y + endpt.height / 2 + self.width * (1 / 2)
-       if left_edge < self.x < right_edge and top_edge < self.y < bottom_edge:
-           self.x = self.init_x
-           self.y = self.init_y
-           return True
-       return False
+    global yaysound
+
+    if yaysound is None:
+        yaysound = pygame.mixer.Sound("yay.wav")
+    left_edge = endpt.x - endpt.width / 2 - self.width * (1 / 2)
+    right_edge = endpt.x + endpt.width / 2 + self.width * (1 / 2)
+    top_edge = endpt.y - endpt.height / 2 - self.width * (1 / 2)
+    bottom_edge = endpt.y + endpt.height / 2 + self.width * (1 / 2)
+
+    if left_edge < self.x < right_edge and top_edge < self.y < bottom_edge:
+            if not pygame.mixer.get_busy():
+                yaysound.play()
+            self.x = self.init_x
+            self.y = self.init_y
+            return True 
+    return False
   
+
+
+
+
 
 
    def touch_orb(self, orb: Orb) -> bool:
