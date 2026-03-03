@@ -128,6 +128,7 @@ class Player:
 
        if len(self.trail) > 4:
            self.trail.pop(0)
+
    def display(self) -> None:
        rect_x = self.x - self.width / 2
        rect_y = self.y - self.height / 2

@@ -1,7 +1,9 @@
 from player import Player
 from sound import alarmed
 import pygame
+
 ahsound = None
+
 
 def tagged(runner, tagger):
     global ahsound
@@ -14,7 +16,6 @@ def tagged(runner, tagger):
     top_edge = tagger.y - tagger.height / 2 - runner.width * (1 / 2)
     bottom_edge = tagger.y + tagger.height / 2 + runner.width * (1 / 2)
 
-
     if left_edge < runner.x < right_edge and top_edge < runner.y < bottom_edge:
         if not pygame.mixer.get_busy():
             ahsound.play()
@@ -23,7 +24,5 @@ def tagged(runner, tagger):
         tagger.x = tagger.init_x
         tagger.y = tagger.init_y
         return True
-    
-    
 
     return False

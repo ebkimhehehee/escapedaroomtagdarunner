@@ -8,19 +8,20 @@ class Wall:
 
 
    def __init__(
-       self, screen: pygame.Surface, x: int, y: int, width: int, height: int
+       self, screen: pygame.Surface, x: int, y: int, width: int, height: int, color: str
    ) -> None:
        self.screen = screen
        self.x = x
        self.y = y
        self.width = width
        self.height = height
+       self.color = color
 
 
    def display(self):
        pygame.draw.rect(
            self.screen,
-           "#5C5C5C",
+           self.color,
            (
                self.x - 0.5 * self.width,
                self.y - 0.5 * self.height,
