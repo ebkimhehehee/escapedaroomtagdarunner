@@ -22,14 +22,14 @@ def main():
     level2 = init_l2(screen, "#00c521")
     level3 = init_l3(screen, "#ff0000")
     level4 = init_l4(screen, "#FFFFFF")
-    level5 = init_l5(screen, "#000000")
+    level5 = init_l5(screen, "#510CAC")
 
 
 
     end_screen = init_end_screen(
         screen, level2.p1_score, level2.p2_score
     )  # CHANGE TO LAST LEVEL
-    state = "l4"
+    state = "l5"
 
     while True:
 

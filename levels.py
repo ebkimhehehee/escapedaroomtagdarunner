@@ -225,4 +225,4 @@ def init_l5(screen: pygame.Surface, wall_color: str):
              Wall(screen, 680, 150, 380, 20, wall_color),
              ]
     orbs = [Orb(screen) for i in range(11)]
-    return Level(screen, "#5A2EDE", (700,400), (1370,550), (975,25), walls, orbs)
+    return Level(screen, "#13004E", (700,400), (1370,550), (975,25), walls, orbs)
