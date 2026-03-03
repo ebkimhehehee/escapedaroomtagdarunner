@@ -38,8 +38,8 @@ class End_screen:
 
         self.screen.blit(reddie_score_image, (400, 30))
         self.screen.blit(blu_score_image, (850, 30))
-        self.screen.blit(winner_image, (450, 300))
-        self.screen.blit(bye_image, (500, 600))
+        self.screen.blit(winner_image, (self.screen.get_width()/2 - winner_image.get_width()/2, 300))
+        self.screen.blit(bye_image, (self.screen.get_width()/2 - bye_image.get_width()/2, 600))
 
 
 

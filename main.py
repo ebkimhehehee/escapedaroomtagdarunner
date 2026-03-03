@@ -29,7 +29,7 @@ def main():
     end_screen = init_end_screen(
         screen, level2.p1_score, level2.p2_score
     )  # CHANGE TO LAST LEVEL
-    state = "l5"
+    state = "endscreen"
 
     while True:
 
