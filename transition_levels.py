@@ -89,6 +89,8 @@ def init_t3(screen: pygame.Surface, level: int, runner: Player) -> Transition_le
 def init_t4(screen: pygame.Surface, level: int, runner: Player) -> Transition_level:
     return Transition_level(screen, level, runner)
 
-
 def init_t5(screen: pygame.Surface, level: int, runner: Player) -> Transition_level:
+    return Transition_level(screen, level, runner)
+
+def init_t6(screen: pygame.Surface, level: int, runner: Player) -> Transition_level:
     return Transition_level(screen, level, runner)
