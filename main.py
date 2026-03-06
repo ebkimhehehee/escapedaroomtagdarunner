@@ -32,7 +32,7 @@ def main():
     trans5 = init_t5(screen, 5, level5.p1)
     trans6 = init_t6(screen, 6, level6.p2)
     end_screen = init_end_screen(screen)
-    state = "start_screen"
+    state = "l6"
 
     while True:
 
@@ -46,32 +46,32 @@ def main():
                     if event.key == pygame.K_SPACE:
                         state = "t1"
 
-            if state == "t1":
+            elif state == "t1":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         state = "l1"
 
-            if state == "t2":
+            elif state == "t2":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         state = "l2"
 
-            if state == "t3":
+            elif state == "t3":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         state = "l3"
 
-            if state == "t4":
+            elif state == "t4":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         state = "l4"
 
-            if state == "t5":
+            elif state == "t5":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         state = "l5"
             
-            if state == "t6":
+            elif state == "t6":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         state = "l6"
@@ -95,7 +95,7 @@ def main():
             trans5.update(level5.p1)
         
         elif state == "t6":
-            trans6.update(level6.p1)
+            trans6.update(level6.p2)
 
         elif state == "l1":
             score_runner = level1.update(screen, level1.p1, level1.p2)
@@ -138,6 +138,8 @@ def main():
             if score_runner:
                 level6.p1_score = level5.p1_score
                 level6.p2_score = level5.p2_score
+                trans6.reddiescore = level5.p1_score
+                trans6.bluscore = level5.p2_score
                 state = "t6"
         
         elif state == "l6":
@@ -147,7 +149,7 @@ def main():
                 end_screen.blu_score = level6.p2_score
                 state = "end_screen"
 
-        elif state == "endscreen":
+        elif state == "end_screen":
             end_screen.update()
 
         pygame.display.flip()

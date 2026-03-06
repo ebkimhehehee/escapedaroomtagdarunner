@@ -42,8 +42,8 @@ class End_screen:
         winner_image = self.fontwinner.render(self.winner, True, self.winnercolor)
         bye_image = self.fontbye.render(f"Catch you next time!", True, "#ffffff")
 
-        self.screen.blit(self.reddie, (1100, 200))
-        self.screen.blit(self.blu, (50, 500))
+        self.screen.blit(self.reddie, (1070, 200))
+        self.screen.blit(self.blu, (150, 480))
 
         self.screen.blit(reddie_score_image, (400, 30))
         self.screen.blit(blu_score_image, (850, 30))

@@ -186,7 +186,7 @@ def init_l3(screen: pygame.Surface, wall_color: str):  # esther #x,y, width, len
         Wall(screen, 600,850, 60, 600, wall_color)
     ]
     orbs = [Orb(screen) for _ in range(11)]
-    return Level(screen, "#5c2c0e", (0, 0), (1200, 700), (500, 400), walls, orbs)
+    return Level(screen, "#5c2c0e", (0, 0), (1000, 700), (500, 700), walls, orbs)
 #player one reddie, player 2 blu, end point
 
 def init_l4(screen: pygame.Surface, wall_color: str):  # esther
@@ -216,10 +216,10 @@ def init_l4(screen: pygame.Surface, wall_color: str):  # esther
         Wall(screen, 1170, 400, 20, 170, wall_color),
     ]
     orbs = [Orb(screen) for _ in range(11)]
-    return Level(screen, "#cfeaff", (0, 0), (1200, 700), (500, 400), walls, orbs)
+    return Level(screen, "#cfeaff", (0, 0), (1100, 700), (500, 400), walls, orbs)
 
 def init_l5(screen: pygame.Surface, wall_color: str):
-    walls= [screen, 1000, 200, 300, 100, wall_color]
+    walls= [Wall(screen, 1000, 200, 300, 100, wall_color)]
     orbs = [Orb(screen) for _ in range(11)]
     return Level(screen, "#EE73D4", (10, 10), (1300, 500), (500, 400), walls, orbs)
 
