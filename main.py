@@ -29,7 +29,7 @@ def main():
     end_screen = init_end_screen(
         screen, level2.p1_score, level2.p2_score
     )  # CHANGE TO LAST LEVEL
-    state = "endscreen"
+    state = "l3" 
 
     while True:
 
@@ -60,7 +60,9 @@ def main():
 
         if state == "l5":
             level5.update(screen, level5.p1, level5.p2)
-
+#Make level 5 to level 6 
+# and make a new level 5 
+#basic, swamp, lava, ice, candy(walls yellow and background pink), space
         if state == "endscreen":
             end_screen.update()
 

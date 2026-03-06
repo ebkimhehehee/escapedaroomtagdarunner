@@ -41,7 +41,7 @@ class Player:
        self.init_x = x
        self.init_y = y
        self.level = level
-       self.speed = 7.5
+       self.speed = 7
        self.trail = []
 
 

@@ -48,7 +48,7 @@ class Level:
             pygame.K_d,
             (255, 0, 0),
             self,
-            7.5,
+            7,
         )
         p_two = Player(
             self.screen,
@@ -60,7 +60,7 @@ class Level:
             pygame.K_RIGHT,
             (0, 0, 255),
             self,
-            7.5,
+            7,
         )
         return p_one, p_two
 
@@ -92,18 +92,22 @@ class Level:
                 self.p1_score += 1
             if runner.color == self.p2.color:
                 self.p2_score += 1
-            runner.speed = 7.5
-            tagger.speed = 7.5
+            runner.speed = 7
+            tagger.speed = 7
         if score_tagger:
             if tagger.color == self.p1.color:
                 self.p1_score += 1
             if tagger.color == self.p2.color:
                 self.p2_score += 1
-            runner.speed = 7.5
-            tagger.speed = 7.5
+            runner.speed = 7
+            tagger.speed = 7
 
-        right_score_image = self.font.render(f"BLU: {self.p2_score}", True, self.p2.color)
-        left_score_image = self.font.render(f"REDDIE: {self.p1_score}", True, self.p1.color)
+        right_score_image = self.font.render(
+            f"BLU: {self.p2_score}", True, self.p2.color
+        )
+        left_score_image = self.font.render(
+            f"REDDIE: {self.p1_score}", True, self.p1.color
+        )
         screen.blit(
             left_score_image, (0.2 * screen.get_width(), 0.02 * screen.get_height())
         )
@@ -115,7 +119,7 @@ class Level:
 def init_l1(screen: pygame.Surface, wall_color: str):
     walls = [
         Wall(screen, 100, 30, 300, 100, wall_color),
-        Wall(screen, 600, 200, 50, 300, wall_color), 
+        Wall(screen, 600, 200, 50, 300, wall_color),
         Wall(screen, 100, 800, 50, 500, wall_color),
         Wall(screen, 1000, 50, 300, 800, wall_color),
         Wall(screen, 1200, 700, 400, 200, wall_color),
@@ -149,7 +153,14 @@ def init_l2(screen: pygame.Surface, wall_color: str):
         Wall(screen, 200, 760, 500, 80, wall_color),
         Wall(screen, 50, 100, 100, 20, wall_color),
         Wall(screen, 170, 300, 100, 20, wall_color),
-        Wall(screen, 50, 500, 120, 20, wall_color,),
+        Wall(
+            screen,
+            50,
+            500,
+            120,
+            20,
+            wall_color,
+        ),
         Wall(screen, 800, 300, 150, 20, wall_color),
         Wall(screen, 475, 100, 50, 250, wall_color),
         Wall(screen, 300, 180, 120, 20, wall_color),
@@ -165,64 +176,109 @@ def init_l2(screen: pygame.Surface, wall_color: str):
     return Level(screen, "#79CAFF", (750, 335), (25, 535), (1180, 170), walls, orbs)
 
 
-def init_l3(screen: pygame.Surface, wall_color: str):
-    walls = []
+def init_l3(screen: pygame.Surface, wall_color: str):  # esther #x,y, width, length
+    walls = [
+        Wall(screen, 100, 0, 60, 500, wall_color),
+        Wall(screen, 0, 400, 1600, 60, wall_color),
+        Wall(screen, 250, 240, 60, 300, wall_color),
+        Wall(screen, 400, 0, 60, 500, wall_color),
+        Wall(screen, 550, 240, 60, 300, wall_color),
+        Wall(screen, 700, 0, 60, 500, wall_color),
+        Wall(screen, 980, 0, 90, 1000, wall_color),
+        Wall(screen, 1200, 500, 80, 600, wall_color),
+        Wall(screen, 250,850, 60, 600, wall_color),
+        Wall(screen, 600,850, 60, 600, wall_color)
+    ]
     orbs = [Orb(screen) for i in range(11)]
-    return Level(screen, "#5c2c0e",(0,0), (1200, 700), (500, 400), walls, orbs)
+    return Level(screen, "#5c2c0e", (0, 0), (1200, 700), (500, 400), walls, orbs)
+#player one reddie, player 2 bluey, end point
 
-def init_l4(screen: pygame.Surface, wall_color: str):
-    walls = []
+def init_l4(screen: pygame.Surface, wall_color: str):  # esther
+    walls = [
+        Wall(screen, 250, 350, 80, 500, wall_color),
+        Wall(screen, 700, 250, 50, 250, wall_color),
+        Wall(screen, 575, 350, 250, 50, wall_color),
+        Wall(screen, 1150, 100, 400, 100, wall_color),
+        Wall(screen, 1275, 200, 150, 100, wall_color),
+        Wall(screen, 1325, 300, 50, 200, wall_color),
+        Wall(screen, 1035, 310, 170, 170, wall_color),
+        Wall(screen, 1160, 350, 150, 90, wall_color),
+        Wall(screen, 700, 600, 50, 250, wall_color),
+        Wall(screen, 200, 760, 500, 80, wall_color),
+        Wall(screen, 50, 100, 100, 20, wall_color),
+        Wall(screen, 170, 300, 100, 20, wall_color),
+        Wall(
+            screen,
+            50,
+            500,
+            120,
+            20,
+            wall_color,
+        ),
+        Wall(screen, 800, 300, 150, 20, wall_color),
+        Wall(screen, 475, 100, 50, 250, wall_color),
+        Wall(screen, 300, 180, 120, 20, wall_color),
+        Wall(screen, 540, 550, 270, 20, wall_color),
+        Wall(screen, 440, 690, 20, 70, wall_color),
+        Wall(screen, 1300, 700, 200, 200, wall_color),
+        Wall(screen, 850, 715, 270, 20, wall_color),
+        Wall(screen, 1050, 610, 350, 20, wall_color),
+        Wall(screen, 1020, 550, 20, 100, wall_color),
+        Wall(screen, 1170, 400, 20, 170, wall_color),
+    ]
     orbs = [Orb(screen) for i in range(11)]
-    return Level(screen, "#cfeaff",(0,0), (1200, 700), (500, 400), walls, orbs)
+    return Level(screen, "#cfeaff", (0, 0), (1200, 700), (500, 400), walls, orbs)
+
 
 def init_l5(screen: pygame.Surface, wall_color: str):
-    walls = [Wall(screen, 530, 400, 30, 250, wall_color),
-             Wall(screen, 870, 400, 30, 250, wall_color),
-             Wall(screen, 700, 290, 350, 30, wall_color),
-             Wall(screen, 550, 510, 50, 30, wall_color),
-             Wall(screen, 760, 510, 200, 30, wall_color),
-             Wall(screen, 1200, 50, 400, 150, wall_color),
-             Wall(screen, 200, 400, 150, 400, wall_color),
-             Wall(screen, 1150, 450, 200, 50, wall_color),
-             Wall(screen, 1225, 320, 50, 250, wall_color),
-             Wall(screen, 1030, 550, 50, 250, wall_color),
-             Wall(screen, 1300, 700, 200, 200, wall_color),
-             Wall(screen, 250, 30, 500, 70, wall_color),
-             Wall(screen, 650, 670, 500, 50, wall_color),
-             Wall(screen, 300, 210, 120, 20, wall_color),
-             Wall(screen, 440, 285, 150, 20, wall_color),
-             Wall(screen, 440, 255, 20, 50, wall_color),
-             Wall(screen, 350, 380, 150, 20, wall_color),
-             Wall(screen, 500, 380, 30, 20, wall_color),
-             Wall(screen, 450, 490, 180, 20, wall_color),
-             Wall(screen, 360, 530, 20, 100, wall_color),
-             Wall(screen, 360, 400, 20, 50, wall_color),
-             Wall(screen, 450, 610, 20, 80, wall_color),
-             Wall(screen, 1280, 465, 80, 20, wall_color),
-             Wall(screen, 1180, 610, 100, 20, wall_color),
-             Wall(screen, 1280, 205, 80, 20, wall_color),
-             Wall(screen, 1360, 350, 90, 20, wall_color),
-             Wall(screen, 1315, 320, 20, 80, wall_color),
-             Wall(screen, 1010, 200, 20, 150, wall_color),
-             Wall(screen, 1015, 400, 20, 70, wall_color),
-             Wall(screen, 1060, 205, 110, 20, wall_color),
-             Wall(screen, 1125, 275, 20, 160, wall_color),
-             Wall(screen, 1110, 365, 50, 20, wall_color),
-             Wall(screen, 410, 720, 20, 70, wall_color),
-             Wall(screen, 890, 720, 20, 70, wall_color),
-             Wall(screen, 650, 790, 20, 70, wall_color),
-             Wall(screen, 900, 515, 70, 20, wall_color),
-             Wall(screen, 980, 375, 50, 20, wall_color),
-             Wall(screen, 900, 285, 70, 20, wall_color),
-             Wall(screen, 670, 550, 20, 80, wall_color),
-             Wall(screen, 740, 590, 160, 20, wall_color),
-             Wall(screen, 890, 620, 20, 70, wall_color),
-             Wall(screen, 360, 655, 80, 20, wall_color),
-             Wall(screen, 135, 630, 20, 70, wall_color),
-             Wall(screen, 135, 770, 20, 80, wall_color),
-             Wall(screen, 135, 200, 20, 90, wall_color),
-             Wall(screen, 500, 50, 20, 200, wall_color),
-             Wall(screen, 680, 150, 380, 20, wall_color),
-             ]
+    walls = [
+        Wall(screen, 530, 400, 30, 250, wall_color),
+        Wall(screen, 870, 400, 30, 250, wall_color),
+        Wall(screen, 700, 290, 350, 30, wall_color),
+        Wall(screen, 550, 510, 50, 30, wall_color),
+        Wall(screen, 760, 510, 200, 30, wall_color),
+        Wall(screen, 1200, 50, 400, 150, wall_color),
+        Wall(screen, 200, 400, 150, 400, wall_color),
+        Wall(screen, 1150, 450, 200, 50, wall_color),
+        Wall(screen, 1225, 320, 50, 250, wall_color),
+        Wall(screen, 1030, 550, 50, 250, wall_color),
+        Wall(screen, 1300, 700, 200, 200, wall_color),
+        Wall(screen, 250, 30, 500, 70, wall_color),
+        Wall(screen, 650, 670, 500, 50, wall_color),
+        Wall(screen, 300, 210, 120, 20, wall_color),
+        Wall(screen, 440, 285, 150, 20, wall_color),
+        Wall(screen, 440, 255, 20, 50, wall_color),
+        Wall(screen, 350, 380, 150, 20, wall_color),
+        Wall(screen, 500, 380, 30, 20, wall_color),
+        Wall(screen, 450, 490, 180, 20, wall_color),
+        Wall(screen, 360, 530, 20, 100, wall_color),
+        Wall(screen, 360, 400, 20, 50, wall_color),
+        Wall(screen, 450, 610, 20, 80, wall_color),
+        Wall(screen, 1280, 465, 80, 20, wall_color),
+        Wall(screen, 1180, 610, 100, 20, wall_color),
+        Wall(screen, 1280, 205, 80, 20, wall_color),
+        Wall(screen, 1360, 350, 90, 20, wall_color),
+        Wall(screen, 1315, 320, 20, 80, wall_color),
+        Wall(screen, 1010, 200, 20, 150, wall_color),
+        Wall(screen, 1015, 400, 20, 70, wall_color),
+        Wall(screen, 1060, 205, 110, 20, wall_color),
+        Wall(screen, 1125, 275, 20, 160, wall_color),
+        Wall(screen, 1110, 365, 50, 20, wall_color),
+        Wall(screen, 410, 720, 20, 70, wall_color),
+        Wall(screen, 890, 720, 20, 70, wall_color),
+        Wall(screen, 650, 790, 20, 70, wall_color),
+        Wall(screen, 900, 515, 70, 20, wall_color),
+        Wall(screen, 980, 375, 50, 20, wall_color),
+        Wall(screen, 900, 285, 70, 20, wall_color),
+        Wall(screen, 670, 550, 20, 80, wall_color),
+        Wall(screen, 740, 590, 160, 20, wall_color),
+        Wall(screen, 890, 620, 20, 70, wall_color),
+        Wall(screen, 360, 655, 80, 20, wall_color),
+        Wall(screen, 135, 630, 20, 70, wall_color),
+        Wall(screen, 135, 770, 20, 80, wall_color),
+        Wall(screen, 135, 200, 20, 90, wall_color),
+        Wall(screen, 500, 50, 20, 200, wall_color),
+        Wall(screen, 680, 150, 380, 20, wall_color),
+    ]
     orbs = [Orb(screen) for i in range(11)]
-    return Level(screen, "#13004E", (700,400), (1370,550), (975,25), walls, orbs)
+    return Level(screen, "#13004E", (700, 400), (1370, 550), (975, 25), walls, orbs)
