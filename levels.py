@@ -48,7 +48,7 @@ class Level:
             pygame.K_d,
             (255, 0, 0),
             self,
-            7.5,
+            7,
         )
         p_two = Player(
             self.screen,
@@ -60,7 +60,7 @@ class Level:
             pygame.K_RIGHT,
             (0, 0, 255),
             self,
-            7.5,
+            7,
         )
         return p_one, p_two
 
@@ -92,15 +92,15 @@ class Level:
                 self.p1_score += 1
             if runner.color == self.p2.color:
                 self.p2_score += 1
-            runner.speed = 7.5
-            tagger.speed = 7.5
+            runner.speed = 7
+            tagger.speed = 7
         if score_tagger:
             if tagger.color == self.p1.color:
                 self.p1_score += 1
             if tagger.color == self.p2.color:
                 self.p2_score += 1
-            runner.speed = 7.5
-            tagger.speed = 7.5
+            runner.speed = 7
+            tagger.speed = 7
 
         right_score_image = self.font.render(
             f"BLU: {self.p2_score}", True, self.p2.color
@@ -108,6 +108,7 @@ class Level:
         left_score_image = self.font.render(
             f"REDDIE: {self.p1_score}", True, self.p1.color
         )
+        
         screen.blit(
             left_score_image, (0.2 * screen.get_width(), 0.02 * screen.get_height())
         )
@@ -120,6 +121,7 @@ class Level:
 def init_l1(screen: pygame.Surface, wall_color: str):
     walls = [
         Wall(screen, 100, 30, 300, 100, wall_color),
+        Wall(screen, 600, 200, 50, 300, wall_color),
         Wall(screen, 600, 200, 50, 300, wall_color),
         Wall(screen, 100, 800, 50, 500, wall_color),
         Wall(screen, 1000, 50, 300, 800, wall_color),
@@ -162,6 +164,14 @@ def init_l2(screen: pygame.Surface, wall_color: str):
             20,
             wall_color,
         ),
+        Wall(
+            screen,
+            50,
+            500,
+            120,
+            20,
+            wall_color,
+        ),
         Wall(screen, 800, 300, 150, 20, wall_color),
         Wall(screen, 475, 100, 50, 250, wall_color),
         Wall(screen, 300, 180, 120, 20, wall_color),
@@ -177,15 +187,57 @@ def init_l2(screen: pygame.Surface, wall_color: str):
     return Level(screen, "#79CAFF", (750, 335), (25, 535), (1180, 170), walls, orbs)
 
 
-def init_l3(screen: pygame.Surface, wall_color: str):
-    walls = []
-    orbs = [Orb(screen) for _ in range(11)]
+def init_l3(screen: pygame.Surface, wall_color: str):  # esther #x,y, width, length
+    walls = [
+        Wall(screen, 100, 0, 60, 500, wall_color),
+        Wall(screen, 0, 400, 1600, 60, wall_color),
+        Wall(screen, 250, 240, 60, 300, wall_color),
+        Wall(screen, 400, 0, 60, 500, wall_color),
+        Wall(screen, 550, 240, 60, 300, wall_color),
+        Wall(screen, 700, 0, 60, 500, wall_color),
+        Wall(screen, 980, 0, 90, 1000, wall_color),
+        Wall(screen, 1200, 500, 80, 600, wall_color),
+        Wall(screen, 250,850, 60, 600, wall_color),
+        Wall(screen, 600,850, 60, 600, wall_color)
+    ]
+    orbs = [Orb(screen) for i in range(11)]
     return Level(screen, "#5c2c0e", (0, 0), (1200, 700), (500, 400), walls, orbs)
+#player one reddie, player 2 bluey, end point
 
-
-def init_l4(screen: pygame.Surface, wall_color: str):
-    walls = []
-    orbs = [Orb(screen) for _ in range(11)]
+def init_l4(screen: pygame.Surface, wall_color: str):  # esther
+    walls = [
+        Wall(screen, 250, 350, 80, 500, wall_color),
+        Wall(screen, 700, 250, 50, 250, wall_color),
+        Wall(screen, 575, 350, 250, 50, wall_color),
+        Wall(screen, 1150, 100, 400, 100, wall_color),
+        Wall(screen, 1275, 200, 150, 100, wall_color),
+        Wall(screen, 1325, 300, 50, 200, wall_color),
+        Wall(screen, 1035, 310, 170, 170, wall_color),
+        Wall(screen, 1160, 350, 150, 90, wall_color),
+        Wall(screen, 700, 600, 50, 250, wall_color),
+        Wall(screen, 200, 760, 500, 80, wall_color),
+        Wall(screen, 50, 100, 100, 20, wall_color),
+        Wall(screen, 170, 300, 100, 20, wall_color),
+        Wall(
+            screen,
+            50,
+            500,
+            120,
+            20,
+            wall_color,
+        ),
+        Wall(screen, 800, 300, 150, 20, wall_color),
+        Wall(screen, 475, 100, 50, 250, wall_color),
+        Wall(screen, 300, 180, 120, 20, wall_color),
+        Wall(screen, 540, 550, 270, 20, wall_color),
+        Wall(screen, 440, 690, 20, 70, wall_color),
+        Wall(screen, 1300, 700, 200, 200, wall_color),
+        Wall(screen, 850, 715, 270, 20, wall_color),
+        Wall(screen, 1050, 610, 350, 20, wall_color),
+        Wall(screen, 1020, 550, 20, 100, wall_color),
+        Wall(screen, 1170, 400, 20, 170, wall_color),
+    ]
+    orbs = [Orb(screen) for i in range(11)]
     return Level(screen, "#cfeaff", (0, 0), (1200, 700), (500, 400), walls, orbs)
 
 
@@ -239,5 +291,5 @@ def init_l5(screen: pygame.Surface, wall_color: str):
         Wall(screen, 500, 50, 20, 200, wall_color),
         Wall(screen, 680, 150, 380, 20, wall_color),
     ]
-    orbs = [Orb(screen) for _ in range(11)]
+    orbs = [Orb(screen) for i in range(11)]
     return Level(screen, "#13004E", (700, 400), (1370, 550), (975, 25), walls, orbs)

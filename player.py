@@ -26,7 +26,7 @@ class Player:
         key_right: int,
         color: tuple[int, int, int],
         level: "Level",  # type: ignore
-        speed: float,
+        speed: float
     ) -> None:
         self.screen = screen
         self.x, self.y = x, y
@@ -41,7 +41,7 @@ class Player:
         self.init_x = x
         self.init_y = y
         self.level = level
-        self.speed = 7.5
+        self.speed = 7
         self.trail = []
 
         if self.color == (255, 0, 0):
