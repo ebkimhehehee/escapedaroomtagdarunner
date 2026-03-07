@@ -219,7 +219,7 @@ def init_l4(screen: pygame.Surface, wall_color: str):
         Wall(screen, 970, 300, 30, 900, wall_color), 
         Wall(screen, 630, 82, 670, 30, wall_color), 
         Wall(screen, 600, 600, 520, 30, wall_color), 
-        Wall(screen, 860, 400, 30, 420, wall_color), 
+        Wall(screen, 860, 400, 30, 430, wall_color), 
         Wall(screen, 350, 270, 20, 150, wall_color), 
         Wall(screen, 350, 550, 20, 100, wall_color), 
         Wall(screen, 450, 390, 20, 250, wall_color),
