@@ -23,7 +23,7 @@ class Transition_level:
         self.reddiescore = 0
         self.bluscore = 0
 
-        self.fontscore = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
+        self.fontscore = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 80)
         self.fontlevel = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 200)
         self.fontplay = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 40)
         self.fontrun_tag = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 60)
@@ -35,8 +35,8 @@ class Transition_level:
         play_image = self.fontplay.render(f"{self.play}", True, "#ffffff")
         runner_image = self.fontrun_tag.render(f"{self.runner}", True, self.run_color)
         tagger_image = self.fontrun_tag.render(f"{self.tagger}", True, self.tag_color)
-        reddiescore_image = self.fontplay.render(f"{self.reddiescore}", True, "#ff0000")
-        bluscore_image = self.fontplay.render(f"{self.bluscore}", True, "#0026ff")
+        reddiescore_image = self.fontscore.render(f"{self.reddiescore}", True, "#ff0000")
+        bluscore_image = self.fontscore.render(f"{self.bluscore}", True, "#0026ff")
 
         self.screen.blit(level_image, (self.screen.get_width()/2 - level_image.get_width()/2, 150))
         self.screen.blit(play_image, (self.screen.get_width()/2 - play_image.get_width()/2, 700))
@@ -56,7 +56,7 @@ class Transition_level:
             self.screen.blit(
                 bluscore_image,
                 (
-                    self.screen.get_width() * 0.75 + reddiescore_image.get_width() / 2,
+                    self.screen.get_width() * 0.75 - reddiescore_image.get_width() / 2,
                     500,
                 ),
             )
@@ -64,7 +64,7 @@ class Transition_level:
             self.screen.blit(
                 reddiescore_image,
                 (
-                    self.screen.get_width() * 0.75 + reddiescore_image.get_width() / 2,
+                    self.screen.get_width() * 0.75 - reddiescore_image.get_width() / 2,
                     500,
                 ),
             )
