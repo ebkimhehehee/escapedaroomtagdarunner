@@ -9,7 +9,7 @@ class Transition_level:
     def __init__(self, screen: pygame.Surface, level: int, runner: Player) -> None:
         self.screen = screen
         self.level = f"LEVEL {level}"
-        self.play = "press start to continue"
+        self.play = "press space to continue"
         if runner.color == (255, 0, 0):
             self.runner = "REDDIE IS RUNNER"
             self.tagger = "BLU IS TAGGER"
@@ -38,8 +38,8 @@ class Transition_level:
         reddiescore_image = self.fontplay.render(f"{self.reddiescore}", True, "#ff0000")
         bluscore_image = self.fontplay.render(f"{self.bluscore}", True, "#0026ff")
 
-        self.screen.blit(level_image, (450, 150))
-        self.screen.blit(play_image, (570, 700))
+        self.screen.blit(level_image, (self.screen.get_width()/2 - level_image.get_width()/2, 150))
+        self.screen.blit(play_image, (self.screen.get_width()/2 - play_image.get_width()/2, 700))
         self.screen.blit(
             runner_image,
             (self.screen.get_width() / 4 - runner_image.get_width() / 2, 400),

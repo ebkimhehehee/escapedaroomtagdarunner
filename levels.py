@@ -218,10 +218,83 @@ def init_l4(screen: pygame.Surface, wall_color: str):  # esther
     orbs = [Orb(screen) for _ in range(11)]
     return Level(screen, "#cfeaff", (0, 0), (1100, 700), (500, 400), walls, orbs)
 
+
+
+
+
+
 def init_l5(screen: pygame.Surface, wall_color: str):
-    walls= [Wall(screen, 1000, 200, 300, 100, wall_color)]
+    walls= [
+        Wall(screen, 70, 700, 150, 200, wall_color),
+        Wall(screen, 100, 590, 290, 35, wall_color),
+        Wall(screen, 200, 790, 300, 50, wall_color),
+        Wall(screen, 220, 690, 50, 50, wall_color),
+        Wall(screen, 320, 720, 40, 110, wall_color),
+        Wall(screen, 400, 780, 200, 100, wall_color),
+        Wall(screen, 50, 525, 100, 100, wall_color),
+        Wall(screen, 230, 500, 150, 50, wall_color),
+        Wall(screen, 400, 540, 200, 130, wall_color),
+        Wall(screen, 445, 640, 110, 70, wall_color),
+        Wall(screen, 1000, 280, 80, 220, wall_color),
+        Wall(screen, 1090, 340, 150, 100, wall_color),
+        Wall(screen, 1205, 315, 80, 150, wall_color),
+        Wall(screen, 1110, 80, 300, 50, wall_color),
+        Wall(screen, 1105, 150, 30, 150, wall_color),
+        Wall(screen, 1230, 115, 220, 120, wall_color),
+        Wall(screen, 1330, 223, 50, 335, wall_color),
+        Wall(screen, 730, 400, 150, 300, wall_color),
+        Wall(screen, 50, 50, 190, 150, wall_color),
+        Wall(screen, 250, 330, 250, 50, wall_color),
+        Wall(screen, 350, 100, 250, 50, wall_color),
+        Wall(screen, 100, 280, 50, 150, wall_color),
+        Wall(screen, 500, 150, 50, 150, wall_color),
+        Wall(screen, 170, 215, 100, 20, wall_color),
+        Wall(screen, 320, 280, 20, 100, wall_color),
+        Wall(screen, 450, 215, 100, 20, wall_color),
+        Wall(screen, 235, 130, 20, 50, wall_color),
+        Wall(screen, 515, 300, 20, 200, wall_color),
+        Wall(screen, 400, 315, 80, 20, wall_color),
+        Wall(screen, 485, 400, 80, 20, wall_color),
+        Wall(screen, 0, 155, 50, 100, wall_color),
+        Wall(screen, 80, 345, 80, 20, wall_color),
+        Wall(screen, 805, 675, 300, 80, wall_color),
+        Wall(screen, 1100, 500, 290, 30, wall_color),
+        Wall(screen, 1390, 690, 160, 400, wall_color),
+        Wall(screen, 970, 400, 20, 50, wall_color),
+        Wall(screen, 1235, 400, 20, 50, wall_color),
+        Wall(screen, 1100, 400, 20, 50, wall_color),
+        Wall(screen, 1170, 470, 20, 50, wall_color),
+        Wall(screen, 1040, 470, 20, 50, wall_color),
+        Wall(screen, 1320, 480, 20, 70, wall_color),
+        Wall(screen, 1150, 570, 20, 140, wall_color),
+        Wall(screen, 1150, 720, 200, 20, wall_color),
+        Wall(screen, 1280, 600, 100, 20, wall_color),
+        Wall(screen, 1240, 700, 20, 60, wall_color),
+        Wall(screen, 1050, 700, 20, 60, wall_color),
+        Wall(screen, 920, 415, 80, 20, wall_color),
+        Wall(screen, 840, 335, 80, 20, wall_color),
+        Wall(screen, 920, 260, 80, 20, wall_color),
+        Wall(screen, 550, 260, 80, 20, wall_color),
+        Wall(screen, 630, 330, 80, 20, wall_color),
+        Wall(screen, 550, 400, 80, 20, wall_color),
+        Wall(screen, 520, 485, 60, 20, wall_color),
+        Wall(screen, 640, 540, 60, 20, wall_color),
+        Wall(screen, 520, 640, 80, 20, wall_color),
+        Wall(screen, 740, 90, 250, 120, wall_color),
+        Wall(screen, 945, 610, 20, 60, wall_color),
+        Wall(screen, 945, 720, 20, 60, wall_color),
+        Wall(screen, 665, 790, 20, 60, wall_color),
+        Wall(screen, 750, 790, 150, 20, wall_color),
+    ]
     orbs = [Orb(screen) for _ in range(11)]
-    return Level(screen, "#EE73D4", (10, 10), (1300, 500), (500, 400), walls, orbs)
+    return Level(screen, "#F782DE", (1280, 200), (150, 280), (170, 740), walls, orbs)
+
+
+
+
+
+
+
 
 def init_l6(screen: pygame.Surface, wall_color: str):
     walls = [
