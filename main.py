@@ -23,7 +23,7 @@ def main():
     level2 = init_l2(screen, "#00c521")
     level3 = init_l3(screen, "#ff0000")
     level4 = init_l4(screen, "#FFFFFF")
-    level5 = init_l5(screen, "#FFF7C8")
+    level5 = init_l5(screen, "#F9DA91")
     level6 = init_l6(screen, "#510CAC")
     trans1 = init_t1(screen, 1, level1.p1)
     trans2 = init_t2(screen, 2, level2.p2)
