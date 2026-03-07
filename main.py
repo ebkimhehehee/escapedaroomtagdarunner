@@ -10,6 +10,7 @@ from transition_levels import init_t1, init_t2, init_t3, init_t4, init_t5, init_
 from start_screen import init_start_screen
 from end_screen import init_end_screen
 
+cdsound = None
 
 def main():
     fps = 60
@@ -35,7 +36,10 @@ def main():
     state = "start_screen"
 
     while True:
-
+        global cdsound
+        if cdsound is None:
+            cdsound = pygame.mixer.Sound("cd.wav")
+        
         for event in pygame.event.get():
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
@@ -44,7 +48,9 @@ def main():
             if state == "start_screen":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        state = "t1"
+                        if not pygame.mixer.get_busy():
+                            cdsound.play()
+                            state = "t1"
 
             elif state == "t1":
                 if event.type == pygame.KEYDOWN:

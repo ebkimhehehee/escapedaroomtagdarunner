@@ -1,8 +1,8 @@
 import pygame
-
+hehesound = None
 
 class End_screen:
-
+    
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
         self.reddie_score = 0
@@ -21,6 +21,13 @@ class End_screen:
         self.fontbye = pygame.font.SysFont("BigBlueTerm437 Nerd Font", 50)
 
     def update(self):
+        global hehesound
+        if hehesound is None:
+            hehesound = pygame.mixer.Sound("hehe.wav")
+        
+        if not pygame.mixer.get_busy():
+                hehesound.play()
+
         if self.reddie_score == self.blu_score:
             self.winner = "YOU TIED (boring)"
             self.winnercolor = "#ffffff"
