@@ -33,7 +33,7 @@ def main():
     trans5 = init_t5(screen, 5, level5.p1)
     trans6 = init_t6(screen, 6, level6.p2)
     end_screen = init_end_screen(screen)
-    state = "l5"
+    state = "start_screen"
 
     while True:
         global cdsound
