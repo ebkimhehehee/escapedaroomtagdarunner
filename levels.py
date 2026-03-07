@@ -231,6 +231,9 @@ def init_l4(screen: pygame.Surface, wall_color: str):  # Esther - clean circular
         Wall(screen, 1200, 0, 30, 400, wall_color), 
         Wall(screen, 1350, 600, 100, 20, wall_color), 
         Wall(screen, 1260, 700, 120, 20, wall_color), 
+        Wall(screen, 1350, 0, 500, 400, wall_color), 
+        Wall(screen, 550, 350, 20, 150, wall_color),
+        Wall(screen, 650, 400, 20, 150, wall_color),
     ]
 
     orbs = [Orb(screen) for _ in range(11)]
@@ -239,7 +242,7 @@ def init_l4(screen: pygame.Surface, wall_color: str):  # Esther - clean circular
         screen,
         "#cfeaff",
         (50, 50),     
-        (700, 400), 
+        (500, 300), 
         (1350, 750),    
         walls,
         orbs,
