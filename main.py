@@ -48,14 +48,14 @@ def main():
             if state == "start_screen":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        if not pygame.mixer.get_busy():
-                            cdsound.play()
                             state = "t1"
 
             elif state == "t1":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        state = "l1"
+                        if not pygame.mixer.get_busy():
+                            cdsound.play()
+                            state = "l1"
 
             elif state == "t2":
                 if event.type == pygame.KEYDOWN:
