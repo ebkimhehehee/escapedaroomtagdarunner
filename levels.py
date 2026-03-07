@@ -188,7 +188,7 @@ def init_l2(screen: pygame.Surface, wall_color: str):
     return Level(screen, "#79CAFF", (750, 335), (25, 535), (1180, 170), walls, orbs)
 
 
-def init_l3(screen: pygame.Surface, wall_color: str):  # esther #x,y, width, length
+def init_l3(screen: pygame.Surface, wall_color: str): 
     walls = [
         Wall(screen, 100, 0, 60, 500, wall_color),
         Wall(screen, 0, 400, 1600, 60, wall_color),
@@ -202,15 +202,15 @@ def init_l3(screen: pygame.Surface, wall_color: str):  # esther #x,y, width, len
         Wall(screen, 600, 850, 60, 600, wall_color),
         Wall(screen, 420, 520, 60, 300, wall_color),
         Wall(screen, 800, 520, 60, 300, wall_color),
-        Wall(screen, 1200, 250, 200, 60, wall_color),
+        Wall(screen, 1200, 300, 200, 60, wall_color),
         Wall(screen, 1300, 100, 100, 100, wall_color),
     ]
     orbs = [Orb(screen) for _ in range(11)]
-    return Level(screen, "#bf2219", (0, 0), (1500, 800), (50, 750), walls, orbs)
-# player one reddie, player 2 blu, end point
+    return Level(screen, "#bf2219", (25, 25), (1375, 775), (50, 750), walls, orbs)
 
 
-def init_l4(screen: pygame.Surface, wall_color: str):  # Esther - clean circular maze
+
+def init_l4(screen: pygame.Surface, wall_color: str):
     walls = [
         Wall(screen, 550, 200, 600, 30, wall_color), 
         Wall(screen, 110, 0, 30, 1200, wall_color),  
