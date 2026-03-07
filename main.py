@@ -21,7 +21,7 @@ def main():
     start_screen = init_start_screen(screen)
     level1 = init_l1(screen, "#565656")
     level2 = init_l2(screen, "#00c521")
-    level3 = init_l3(screen, "#ff0000")
+    level3 = init_l3(screen, "#522810")
     level4 = init_l4(screen, "#FFFFFF")
     level5 = init_l5(screen, "#FFF2D2")
     level6 = init_l6(screen, "#510CAC")
