@@ -2,7 +2,7 @@ import pygame
 
 
 import pygame
-
+pusound = None
 yaysound = None
 from walls import Wall
 from endpoint import End
@@ -77,18 +77,26 @@ class Player:
         return False
 
     def touch_orb(self, orb: Orb) -> bool:
+        global pusound
+        
+        if pusound is None:
+            pusound = pygame.mixer.Sound("pu.wav")
+
         x_diff = abs(self.x - orb.x)
         y_diff = abs(self.y - orb.y)
 
         if x_diff < self.width / 2 + orb.radi and y_diff < self.height / 2 + orb.radi:
             if self.color == orb.color:
-                self.speed *= 1.3
-                self.speed *= 1.3
+                if not pygame.mixer.get_busy():
+                    pusound.play()
+                    self.speed *= 1.3
             else:
-                self.speed *= 0.7
-                self.speed *= 0.7
+                if not pygame.mixer.get_busy():
+                    pusound.play()
+                    self.speed *= 0.7        
             return True
         return False
+
 
     def update(self) -> None:
         pushed = pygame.key.get_pressed()
@@ -111,6 +119,7 @@ class Player:
 
         for orb in self.level.orbs:
             if self.touch_orb(orb):
+
                 self.level.orbs.remove(orb)
 
         self.trail.append((self.x, self.y))
