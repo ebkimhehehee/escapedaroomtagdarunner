@@ -23,7 +23,7 @@ def main():
     level2 = init_l2(screen, "#00c521")
     level3 = init_l3(screen, "#331909")
     level4 = init_l4(screen, "#FFFFFF")
-    level5 = init_l5(screen, "#FFF2D2")
+    level5 = init_l5(screen, "#FFE6A6")
     level6 = init_l6(screen, "#510CAC")
     trans1 = init_t1(screen, 1, level1.p1)
     trans2 = init_t2(screen, 2, level2.p2)
@@ -32,7 +32,7 @@ def main():
     trans5 = init_t5(screen, 5, level5.p1)
     trans6 = init_t6(screen, 6, level6.p2)
     end_screen = init_end_screen(screen)
-    state = "l3"
+    state = "l5"
 
     while True:
 
