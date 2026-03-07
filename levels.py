@@ -373,4 +373,4 @@ def init_l6(screen: pygame.Surface, wall_color: str):
         Wall(screen, 680, 150, 380, 20, wall_color),
     ]
     orbs = [Orb(screen) for _ in range(11)]
-    return Level(screen, "#13004E", (700, 400), (1370, 550), (975, 25), walls, orbs)
+    return Level(screen, "#13004E", (1370, 550), (700, 400), (975, 25), walls, orbs)

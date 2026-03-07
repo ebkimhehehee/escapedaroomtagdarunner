@@ -25,8 +25,8 @@ class Start_screen:
 
         self.orbs1 = "If the orb color matches you, it gives"
         self.orbs2 = "you a speed boost! Orbs with the opposite"
-        self.orbs3 = "color slow you down... Be smart about"
-        self.orbs4 = "how you use them :) They are both friend and foe"
+        self.orbs3 = "color slow you down... Be smart about how"
+        self.orbs4 = "you use them :) They are both friend and foe"
 
         self.walls = "AND DON'T TOUCH THE WALLS, THEY AREN'T FRIENDLY"
 
